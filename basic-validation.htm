@@ -1,0 +1,79 @@
+<html>
+<head>
+    <title>Basic Validation</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <div>
+        <h2>Class and Attribute Based Form Validation</h2>
+        <form id="classBasedValidation">
+            <p>
+                <label for="firstName">First Name:</label>
+                <input id="firstName" name="firstName" class="required"></input>
+            </p>
+            <p>
+                <label for="lastName">Last Name:</label>
+                <input id="lastName" name="lastName" class="required"></input>
+            </p>
+            <p>
+                <label for="age">Age:</label>
+                <input id="age" name="age" class="required" min="18" max="70"></input>
+            </p>
+            <p>
+                <input type="submit" value="Submit" />
+            </p>
+        </form>
+    </div>
+
+    <div>
+        <h2>JavaScript Based Form Validation</h2>
+        <form id="jsBasedValidation">
+            <p>
+                <label for="jsFirstName">First Name:</label>
+                <input id="jsFirstName" name="firstName"></input>
+            </p>
+            <p>
+                <label for="jslastName">Last Name:</label>
+                <input id="jslastName" name="lastName"></input>
+            </p>
+            <p>
+                <label for="jsAge">Age:</label>
+                <input id="jsAge" name="age"></input>
+            </p>
+            <p>
+                <input type="submit" value="Submit" />
+            </p>
+        </form>
+    </div>
+
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+        $('#classBasedValidation').validate();
+
+        $('#jsBasedValidation').validate({
+            rules: {
+                firstName: "required",
+                lastName: "required",
+                age: {
+                    required: true,
+                    range: [18,70]
+                }
+            },
+            messages: {
+                firstName: "Please enter your first name.",
+                lastName: "Please enter your last name.",
+                age: {
+                    required: "Please enter your age.",
+                    range: "Your age must be between 18 and 70."
+                }
+            }
+        });
+
+    });
+</script>
+</body>
+</html>
