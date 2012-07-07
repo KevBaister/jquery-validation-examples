@@ -1,7 +1,7 @@
 body {
     font-family: Georgia, "Times New Roman", Times, Serif;
     padding: 1em;
-    background-color: #F2F2F2
+    background-color: #F2F2F2;
 }
 
 h2 {
@@ -22,12 +22,6 @@ input {
 label {
     width: 10em;
     float: left;
-}
-
-label.error {
-    float: none;
-    color: #FF3A3A;
-    padding-left: 1em;
 }
 
 p {
